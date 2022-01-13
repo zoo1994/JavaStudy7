@@ -19,15 +19,9 @@ public class PhonebookData {
 			System.out.println("5. 프로그램 종료");
 			int select = sc.nextInt();
 			if (select == 1) {
-				for(int i=0;i<al.size();i++) {
-				System.out.println("이름 : " +al.get(i).getName());
-				System.out.println("별명 : " +al.get(i).getNickname());
-				System.out.println("이메일 : " +al.get(i).getEmail());
-				System.out.println("전화번호 : " +al.get(i).getPhonenumber());
-				System.out.println("생일 : " +al.get(i).getBirthday());
-				System.out.println("-------------------------------------------");
+				phonemenu.phoneshow(al);
 				
-				}
+				
 			} else if (select == 2) {
 				System.out.println("검색할 명단의 이름을 입력하세요");
 				String name = sc.next();

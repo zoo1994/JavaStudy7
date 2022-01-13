@@ -21,8 +21,16 @@ public class PhoneMenu {
 		return pd;
 	}
 
-	public void phoneshow() {
-		
+	public ArrayList<PhonebookDTO>  phoneshow(ArrayList<PhonebookDTO>al) {
+		for(int i=0;i<al.size();i++) {
+			System.out.println("이름 : " +al.get(i).getName());
+			System.out.println("별명 : " +al.get(i).getNickname());
+			System.out.println("이메일 : " +al.get(i).getEmail());
+			System.out.println("전화번호 : " +al.get(i).getPhonenumber());
+			System.out.println("생일 : " +al.get(i).getBirthday());
+			System.out.println("-------------------------------------------");
 	}
-	
+	 return al;
+	}
 }
+
