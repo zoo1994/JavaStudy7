@@ -4,33 +4,45 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PhoneMenu {
-	private Scanner sc;
-	public PhonebookDTO addphonebook() {
-		sc= new Scanner(System.in);
-		PhonebookDTO pd = new PhonebookDTO();
-		System.out.println("추가할 명단의 이름을 입력하세요.");
-		pd.setName(sc.next());
-		System.out.println("추가할 명단의 별명을 입력하세요.");
-		pd.setNickname(sc.next());
-		System.out.println("추가할 명단의 이메일을 입력하세요.");
-		pd.setEmail(sc.next());
-		System.out.println("추가할 명단의 전화번호를 입력하세요.");
-		pd.setPhonenumber(sc.next());
-		System.out.println("추가할 명단의 생일을 입력하세요.");
-		pd.setBirthday(sc.next());
-		return pd;
-	}
+Scanner sc;
+	
+	public void phonebook() {
+		ArrayList<PhonebookDTO> al = new ArrayList<>();
+		PhonebookService ps = new PhonebookService();
+		PhoneView pv = new PhoneView();
+		boolean cheak = true;
+		while (cheak) {
+			this.sc = new Scanner(System.in);
+			System.out.println("1. 전체명단 출력");
+			System.out.println("2. 명단 검색");
+			System.out.println("3. 명단 추가");
+			System.out.println("4. 명단 삭제");
+			System.out.println("5. 프로그램 종료");
+			int select = sc.nextInt();
+			if (select == 1) {
+				pv.phoneviewAll(al);
+				
+			} else if (select == 2) {
+				pv.phoneview(ps.searchDTO(al));
+			} else if (select == 3) {
+				PhonebookDTO pd = ps.addphonebook();
+				al.add(pd);
+				
+			} else if (select == 4) {
+				ps.removePhone(al);
+			} else if (select == 5) {
+				System.out.println("프로그램이 종료됩니다.");
+				cheak = false;
+			} else {
+				System.out.println("잘못된 입력입니다.");
+			}
 
-	public ArrayList<PhonebookDTO>  phoneshow(ArrayList<PhonebookDTO>al) {
-		for(int i=0;i<al.size();i++) {
-			System.out.println("이름 : " +al.get(i).getName());
-			System.out.println("별명 : " +al.get(i).getNickname());
-			System.out.println("이메일 : " +al.get(i).getEmail());
-			System.out.println("전화번호 : " +al.get(i).getPhonenumber());
-			System.out.println("생일 : " +al.get(i).getBirthday());
-			System.out.println("-------------------------------------------");
+		}
 	}
-	 return al;
-	}
+	
+	
+	
+
+
 }
 

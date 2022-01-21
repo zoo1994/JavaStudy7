@@ -1,12 +1,14 @@
 package com.sj.s1.phonebook;
 
+import java.util.Calendar;
+
 public class PhonebookDTO {
 //	이름, 별명, 주소, 전화번호, 생일
 	private String name;
 	private String nickname;
 	private String email;
 	private String phonenumber;
-	private String birthday;
+	private Calendar birthday;
 	
 	public String getName() {
 		return name;
@@ -32,10 +34,10 @@ public class PhonebookDTO {
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
-	public String getBirthday() {
+	public Calendar getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(Calendar birthday) {
 		this.birthday = birthday;
 	}
 	
